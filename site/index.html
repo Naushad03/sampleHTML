@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Southwestern Vacation</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  
+   
+  <script type="text/javascript">
+ 
+  function toggleDiv(a){
+	  if(a == 1){
+		$("#sliderDiv").hide();
+		$("#ArizonaDIV").show(); 
+	  }
+	  if(a == 2){
+			$("#sliderDiv").hide();
+			$("#GettyDIV").show(); 
+	  }
+	  if(a == 3){
+			$("#sliderDiv").hide();
+			$("#NASDIV").show(); 
+	  }
+  }
+  function toggleback(){
+  $("#ArizonaDIV").hide();
+  $("#GettyDIV").hide();
+  $("#NASDIV").hide();
+  $("#sliderDiv").show();
+  }
+  
+$(document).ready(function(){
+  $("#contactUsButton").click(function(){
+	$("#InputText").val('');
+	$("#InputEmail1").val('');
+	$("#Textarea").val('');	
+	$("#InputEmail1").css("border-color","rgb(204, 204, 204)");
+	$("#InputText").css("border-color","rgb(204, 204, 204)");
+	$("#InputEmail1")[0].placeholder = "Enter email";
+	$("#InputText")[0].placeholder = "Enter your full name";
+	$("#InputText").removeClass('errorPlaceHolder');
+	$("#InputText").removeClass('errorPlaceHolder');
+    $("#myContactModal").modal();
+  });
+});
+function validateEmail(email) 
+{
+    var re = /\S+@\S+\.\S+/;
+    return re.test(email);
+}
+function validatemodal(){
+	var name = $("#InputText").val();
+	var email = $("#InputEmail1").val();
+	var comments = $("#Textarea").val();
+	if(name.trim()!=""){
+		if(email.trim()!=""){
+			if(validateEmail(email)){
+				$("#myContactModal").modal('hide');
+				alert("we will contact you soon. Thank you!");
+				
+			}
+			else{
+				$("#InputEmail1").val('');
+				$("#InputEmail1")[0].placeholder = "please enter the valid email";
+				$("#InputEmail1").css("border-color","rgb(250, 0, 0)");
+				$("#InputEmail1").addClass('errorPlaceHolder');
+			}
+		}else{
+		
+		$("#InputEmail1")[0].placeholder = "please enter the valid email";
+		$("#InputEmail1").css("border-color","rgb(250, 0, 0)");
+		$("#InputEmail1").addClass('errorPlaceHolder');
+		}
+	}else{
+	$("#InputText")[0].placeholder = "you cannot leave this empty";
+	$("#InputText").css("border-color","rgb(250, 0, 0)");
+	$("#InputText").addClass('errorPlaceHolder');
+	}
+}
+</script> 
+ <style>
+  
+   .errorPlaceHolder::-webkit-input-placeholder {
+    color: red;
+}     
+.custom-bullet li {
+    display: block;
+}
+
+.custom-bullet li:before
+{
+    /*Using a Bootstrap glyphicon as the bullet point*/
+    content: "\e080";
+    font-family: 'Glyphicons Halflings';
+    font-size: 9px;
+    float: left;
+    margin-top: 4px;
+    margin-left: -17px;
+    color: #CCCCCC;
+}
+  .carousel-inner img {
+      width: 100%; /* Set width to 100% */
+      margin: auto;
+      min-height:200px;
+  }
+.carousel-indicators {
+  bottom:-30px;
+}
+.carousel-indicators li {
+background-color: #FF4500;
+}
+.carousel-indicators .active {
+    background-color: #C0C0C0;
+}
+.carousel-inner {
+   margin-bottom:50px;
+   
+}
+.modal {
+  text-align: center;
+  padding: 0!important;
+}
+
+.modal:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -4px;
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
+h1,h2,h3,h4{
+color: darkorange;
+}
+  </style>
+</head>
+<body>
+
+<div class="container-fluid" id ="mainDIV">
+
+     <h1  onclick="toggleback();" style="cursor: pointer;">Southwestern Vacation</h1> 
+ <div id="sliderDiv">      
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img src="arizona.jpg" alt="Image">
+        <div class="carousel-caption">
+          <h3>Arizona package</h3>
+		  <a href="#" class="btn btn-info" role="button" style="position: absolute;right: -13%;background-color:#F9DF0B;color:black;" onclick="toggleDiv(1);">Read More</a>
+          
+        </div>      
+      </div>
+
+      <div class="item">
+        <img src="southwest_Getty.jpg" alt="Image">
+        <div class="carousel-caption">
+          <h3>southwest Getty</h3>
+          <a href="#" class="btn btn-info" role="button" style="position: absolute;right: -13%;background-color:#F9DF0B;color:black;" onclick="toggleDiv(2);">Read More</a>
+          
+        </div>      
+      </div>
+	  
+	  <div class="item">
+        <img src="Main.jpg" alt="Image">
+        <div class="carousel-caption">
+          <h3>Main NAS</h3>
+        <a href="#" class="btn btn-info" role="button" style="position: absolute;right: -13%;background-color:#F9DF0B;color:black;" onclick="toggleDiv(3);">Read More</a>
+          
+        </div>      
+      </div>
+    </div>
+    
+    
+
+    <!-- Left and right controls 
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+	-->
+</div>
+<div clas="row">
+<div class="col-xs-10">
+<h2>To the Contrary</h2>
+<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, 
+	making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words,
+	consectetur.</p>
+<ul class="custom-bullet">
+    <li>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.</li>
+    <li>Qui officia deserunt mollit anim id est laborum.</li>
+</ul>	
+<br/>
+<h2>Treatise</h2>
+<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, 
+	making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia.</p>
+<ul class="custom-bullet">
+	<li>Qui officia deserunt mollit anim id est laborum.</li>
+    <li>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.</li>
+    
+</ul>
+</div>
+<div class="col-xs-2">
+
+ <button type="button" class="btn btn-primary" id="contactUsButton"  style="position: absolute;right: 5%;background-color: orangered !important;">
+    Contact us
+  </button>
+<!-- The Modal -->
+  <div class="modal pull-right" id="myContactModal" role="dialog" data-backdrop="false">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title" >Contact Us</h4>
+          <button type="button" class="close" data-dismiss="modal" style="margin-top: -20px;">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+           <form role="form">
+                  <div class="form-group">
+                    <label for="name">Name</label>
+                      <input type="text" class="form-control"
+                      id="InputText" placeholder="Enter your full name"/>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                      <input type="text" class="form-control"
+                      id="InputEmail1" placeholder="Enter email"/>
+                  </div>
+                  <div class="form-group">
+					<label for="exampleTextarea">Comments</label>
+					<textarea class="form-control" id="Textarea" rows="3"></textarea>
+				</div>
+                </form>
+        </div>
+        
+        <!-- Modal footer  -->
+        <div class="modal-footer">
+			<button type="button" class="btn btn-danger" data-dismiss="modal" style="background-color: orangered !important;">Close</button>
+          <button type="button" class="btn btn-danger" onclick="validatemodal()" style="background-color: orangered !important;">Submit</button>
+		  
+        </div>
+       
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+</div>
+
+<div id="ArizonaDIV" style="display:none;">
+<h2 style="color:#20BC88">Arizona package</h2> 
+<div class="row">
+    <div class="col-sm-4">
+	
+	<img class="img-responsive" src="th.jpg" style="height:fit-content;"> 
+	</div>
+    <div class="col-sm-8">
+	
+	<h3>Pheonix</h3>
+	
+	<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, 
+	making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words,
+	consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.
+	Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC.
+	This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..",
+	comes from a line in section 1.10.32. </p>
+	
+	
+	<h3>Sedona</h3>
+<ul class="custom-bullet">
+    <li>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.</li>
+    <li>Cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia.</li>
+    <li>Qui officia deserunt mollit anim id est laborum.</li>
+</ul>
+	</br>
+	</div>
+	</div>
+	</div>
+<div id="GettyDIV" style="display:none;">
+<h2 style="color:#20BC88">SW Getty package</h2> 
+<div class="row">
+    <div class="col-sm-4">
+	
+	<img class="img-responsive" src="sh.jpg" style="height:fit-content;"> 
+	</div>
+    <div class="col-sm-8">
+	
+	<h3>Pheonix</h3>
+	
+	<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, 
+	making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words,
+	consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.
+	Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC.
+	This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..",
+	comes from a line in section 1.10.32. </p>
+	
+	
+	<h3>Sedona</h3>
+<ul class="custom-bullet">
+    <li>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.</li>
+    <li>Cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia.</li>
+    <li>Qui officia deserunt mollit anim id est laborum.</li>
+</ul>
+	</br>
+	</div>
+	</div>
+	</div>
+<div id="NASDIV" style="display:none;">
+<h2 style="color:#20BC88">NAS Main</h2> 
+<div class="row">
+    <div class="col-sm-4">
+	
+	<img class="img-responsive" src="m.jpg" style="height:fit-content;">
+	</div>
+    <div class="col-sm-8">
+	
+	<h3>Pheonix</h3>
+	
+	<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, 
+	making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words,
+	consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.
+	Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC.
+	This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..",
+	comes from a line in section 1.10.32. </p>
+	
+	
+	<h3>Sedona</h3>
+<ul class="custom-bullet">
+    <li>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.</li>
+    <li>Cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia.</li>
+    <li>Qui officia deserunt mollit anim id est laborum.</li>
+</ul>
+	</br>
+	</div>
+	</div>
+	</div>
+	
+	</div>  
+ 
+
+</body>
+</html>
